@@ -1,6 +1,5 @@
-// Group: Eugene Rivera, Jordan Bergero, Rigoberto Delgado
-// Multi-threaded Sudoku solver
-// gcc -lpthread
+// Multi-threaded Sudoku solver by Eugene Rivera
+// complie with -lpthread and redirect the input to use input.txt file
 #include <stdio.h>
 #include <stdlib.h>
 #include <pthread.h>
@@ -140,33 +139,33 @@ int main (int argc, char* argv[]) {
       }
       else{
         // threads 18-26 used to check subgrids
-        if (arrayOfStructs[thread_id]->subGrid_id == 1){
-          // subgrid 1
-          printf("The top left subgrid doesn't have the required values.\n");
-        } else if (arrayOfStructs[thread_id]->subGrid_id == 2){
-          // subgrid 2
-          printf("The top middle subgrid doesn't have the required values.\n");
-        } else if (arrayOfStructs[thread_id]->subGrid_id == 3){
-          // subgrid 3
-          printf("The top right subgrid doesn't have the required values.\n");
-        } else if (arrayOfStructs[thread_id]->subGrid_id == 4){
-          // subgrid 4
-          printf("The middle left subgrid doesn't have the required values.\n");
-        } else if (arrayOfStructs[thread_id]->subGrid_id == 5){
-          // subgrid 5
-          printf("The middle subgrid doesn't have the required values.\n");
-        } else if (arrayOfStructs[thread_id]->subGrid_id == 6){
-          // subgrid 6
-          printf("The middle right subgrid doesn't have the required values.\n");
-        } else if (arrayOfStructs[thread_id]->subGrid_id == 7){
-          // subgrid 7
-          printf("The bottom left subgrid doesn't have the required values.\n");
-        } else if (arrayOfStructs[thread_id]->subGrid_id == 8){
-          // subgrid 8
-          printf("The bottom middle subgrid doesn't have the required values.\n");
-        } else {
-          // subgrid 9
-          printf("The bottom right subgrid doesn't have the required values.\n");
+        switch (arrayOfStructs[thread_id]->subGrid_id) {
+          case 1: // subgrid 1
+            printf("The top left subgrid doesn't have the required values.\n");
+            break;
+          case 2: // subgrid 2
+            printf("The top middle subgrid doesn't have the required values.\n");
+            break;
+          case 3: // subgrid 3
+            printf("The top right subgrid doesn't have the required values.\n");
+            break;
+          case 4: // subgrid 4
+            printf("The middle left subgrid doesn't have the required values.\n");
+            break;
+          case 5: // subgrid 5
+            printf("The middle subgrid doesn't have the required values.\n");
+            break;
+          case 6: // subgrid 6
+            printf("The middle right subgrid doesn't have the required values.\n");
+            break;
+          case 7: // subgrid 7
+            printf("The bottom left subgrid doesn't have the required values.\n");
+            break;
+          case 8: // subgrid 8
+            printf("The bottom middle subgrid doesn't have the required values.\n");
+            break;
+          default: // subgrid 9
+            printf("The bottom right subgrid doesn't have the required values.\n");
         }
       }
     }
